@@ -28,7 +28,8 @@ In this example we&rsquo;ll create **Input Actions** for a player. We&rsquo;ll c
 # Installing the Input System
 
 In the editors top menu bar, Navigate to *(Window > Package Manager)*
-![img](./SnapShots/PackageManager.png)\newline
+![img](./SnapShots/PackageManager.png)
+
 To install the input system:
 
 1.  Select the *&ldquo;Unity Registry&rdquo;*
