@@ -1,4 +1,21 @@
 
+# Table of Contents
+
+-   [Introduction](#org1c16676)
+-   [Installing the Input System](#orgc697147)
+-   [Creating Input Actions](#orga44a8cf)
+    -   [Create a New Input Action Asset](#orgbc2c2ba)
+    -   [Configure Control Scheme](#orgbb61df9)
+    -   [Create a New Action Map](#org3eb2830)
+    -   [Create New Binding](#org52cb3a6)
+-   [Using Input Actions](#org34740fe)
+    -   [Add Player Input](#org5321294)
+    -   [Add Logic to Input Action](#org6ffa7c1)
+-   [Why it Matters](#org67a5046)
+
+
+
+<a id="org1c16676"></a>
 
 # Introduction
 
@@ -6,10 +23,12 @@ This walk-through is intended to get you up and running with Unity&rsquo;s event
 In this example we&rsquo;ll create **Input Actions** for a player. We&rsquo;ll create common actions that a player might create in a game.
 
 
+<a id="orgc697147"></a>
+
 # Installing the Input System
 
 In the editors top menu bar, Navigate to *(Window > Package Manager)*
-![img](./SnapShots/PackageManager.png)
+![img](./SnapShots/PackageManager.png)\newline
 To install the input system:
 
 1.  Select the *&ldquo;Unity Registry&rdquo;*
@@ -20,10 +39,14 @@ To install the input system:
 Unity will proceed to install the **Input System** Package. You should now restart your Unity Editor.
 
 
+<a id="orga44a8cf"></a>
+
 # Creating Input Actions
 
 **Input Actions** represent events that take place in your game. These events are triggered from some input like a keyboard, mouse or gamepad.
 
+
+<a id="orgbc2c2ba"></a>
 
 ## Create a New Input Action Asset
 
@@ -32,6 +55,8 @@ In the editors top menu bar, Navigate to *(Assets > Create > Input Actions)*
 ![img](./SnapShots/InputActionAsset.png)
 In our example we name this **Input Action Asset** *&ldquo;PlayerInputActions&rdquo;*.
 
+
+<a id="orgbb61df9"></a>
 
 ## Configure Control Scheme
 
@@ -45,7 +70,7 @@ Double clicking the **Input Action Asset** we just created in the editor, opens 
 In our example we create a new scheme called *&ldquo;Keyboard&Mouse&rdquo;*. We attach the *&ldquo;[Keyboard]&rdquo;* and *&ldquo;[Mouse]&rdquo;* devices to this scheme.
 
 1.  Click the plus button under the *&ldquo;List is Empty&rdquo;* UI.
-2.  Search for the *&ldquo;[Keyboard]&rdquo;* device inn the search bar
+2.  Search for the *&ldquo;[Keyboard]&rdquo;* device in the search bar
 3.  Select the *&ldquo;[Keyboard]&rdquo;* devices in the search results
 4.  Repeat these steps 1-3 for the *&ldquo;Mouse&rdquo;* device
 5.  Select *&ldquo;Save&rdquo;*
@@ -54,6 +79,8 @@ In our example we create a new scheme called *&ldquo;Keyboard&Mouse&rdquo;*. We 
 Our new scheme will be selected automatically because it is our only scheme. Be sure to check the *&ldquo;Auto-Save&rdquo;* box to save the changes we make in the **Input Actions** editor.
 ![img](./SnapShots/Auto-Save.png)
 
+
+<a id="org3eb2830"></a>
 
 ## Create a New Action Map
 
@@ -65,40 +92,46 @@ We&rsquo;ll create a new **Action Map** for our player. This holds all the **Inp
 We name our new **Action Map** as *&ldquo;Player&rdquo;*.
 
 
+<a id="org52cb3a6"></a>
+
 ## Create New Binding
 
-Unity creates an **Input Action** for us called *&ldquo;New action&rdquo;//*. Rename this action *&ldquo;Jump&rdquo;*. We&rsquo;ll set this action to be triggered by the space bar. We do this by creation a new **Binding**.
+Unity creates an **Input Action** for us called *&ldquo;New action&rdquo;*. Rename this action *&ldquo;Jump&rdquo;*. We&rsquo;ll set this action to be triggered by the space bar. We do this by creation a new **Binding**.
 
-1.  Under the *&ldquo;Jump&rdquo;* action select *&ldquo;<No Binding>&rdquo;*
+1.  Under the *&ldquo;Jump&rdquo;* action select *&ldquo;No Binding&rdquo;*
 2.  In the *&ldquo;Binding&rdquo;* panel select the drop down menu next to *&ldquo;Path&rdquo;*
 3.  In the search bar search for space
 4.  Select *&ldquo;Space [Keyboard]&rdquo;* in the search results
     ![img](./SnapShots/AddBinding.png)
-    We repeat these steps but for a new **Input Action** called *&ldquo;Fire&rdquo;//*. This time we search for *&ldquo;Left Button [Mouse]&rdquo;* in the *&ldquo;Path&rdquo;* drop down menu. Our Actions look like this after we are finished.
+    We repeat these steps but for a new **Input Action** called *&ldquo;Fire&rdquo;*. This time we search for *&ldquo;Left Button [Mouse]&rdquo;* in the *&ldquo;Path&rdquo;* drop down menu. Our Actions look like this after we are finished.
     ![img](./SnapShots/FinalActions.png)
-    /newline
-    /newline
 
 Our **Input Actions** are now complete. Next we learn how to listen for when our events are triggered.
 
+
+<a id="org34740fe"></a>
 
 # Using Input Actions
 
 Every time the player presses their spacebar or clicks their left mouse button, our *&ldquo;Jump&rdquo;* and *&ldquo;Fire&rdquo;* **Input Actions** are triggered
 
 
+<a id="org5321294"></a>
+
 ## Add Player Input
 
-We can listen for those events using the **Player Input** component. Create an empty game object in the project Hierarchy called *&ldquo;Player&rdquo;//*. Add the **Player Input** component in the inspector for this *&ldquo;Player&rdquo;* game object.
+We can listen for those events using the **Player Input** component. Create an empty game object in the project Hierarchy called *&ldquo;Player&rdquo;*. Add the **Player Input** component in the inspector for this *&ldquo;Player&rdquo;* game object.
 After adding the component:
 
 1.  In the **Player Input** component panel, select the *&ldquo;Actions&rdquo;* radial button
-2.  Select your the **Input Action Asset** we created earlier
+2.  Select the **Input Action Asset** we created earlier
 3.  Select the **Control Scheme** we created earlier
 
 ![img](./SnapShots/AddPlayerInput.png)
 Our player object is now linked to our **Input Actions**, *&ldquo;Jump&rdquo;* and *&ldquo;Fire&rdquo;*.
 
+
+<a id="org6ffa7c1"></a>
 
 ## Add Logic to Input Action
 
@@ -124,8 +157,10 @@ Add the following code snippet to the *&ldquo;PlayerActions.cs&rdquo;* file.
         }
     }
 
-With this code added to the player object, we&rsquo;ve succeeded in writing custom logic that will come to define what our **Input Actions** do. Now when we play our game the message, *&ldquo;The Player created our Jump InputAction&rdquo;//*, is printed when the player presses the spacebar. Or it will print *&ldquo;The Player created our Fire InputAction&rdquo;*.
+With this code added to the player object, we&rsquo;ve succeeded in writing custom logic that will come to define what our **Input Actions** do. Now when we play our game the message, *&ldquo;The Player created our Jump InputAction&rdquo;*, is printed when the player presses the spacebar. Or it will print *&ldquo;The Player created our Fire InputAction&rdquo;* when the player clicks their left mouse button.
 
+
+<a id="org67a5046"></a>
 
 # Why it Matters
 
